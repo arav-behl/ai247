@@ -19,25 +19,25 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 section-gradient">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="contact" className="relative py-28 sm:py-36 section-gradient">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left side - Copy */}
           <div>
-            <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+            <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
               Get Started
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-8">
               Ready to Hire Your First{" "}
               <span className="gradient-text">AI Employee?</span>
             </h2>
-            <p className="text-lg text-muted leading-relaxed mb-8">
+            <p className="text-lg text-muted leading-relaxed mb-10">
               Book a free demo with our team. We&apos;ll show you exactly how AI247
               can automate your workflows, cut costs, and scale your
               operations — all within 48 hours of signing up.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {[
                 {
                   title: "Free 30-Minute Discovery Call",
@@ -79,7 +79,7 @@ export default function CTA() {
           </div>
 
           {/* Right side - Form */}
-          <div className="rounded-xl border border-border bg-card p-8">
+          <div className="rounded-xl border border-border bg-card p-10">
             {submitted ? (
               <div className="text-center py-12">
                 <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-success/10 mb-6">
@@ -107,12 +107,12 @@ export default function CTA() {
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-semibold mb-2">Book a Demo</h3>
-                <p className="text-sm text-muted mb-6">
+                <h3 className="text-xl font-semibold mb-3">Book a Demo</h3>
+                <p className="text-sm text-muted mb-8">
                   Fill in your details and we&apos;ll get back to you within 24
                   hours.
                 </p>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium mb-1.5">
@@ -201,7 +201,7 @@ export default function CTA() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full rounded-lg bg-accent px-4 py-3 text-sm font-medium text-white transition-all hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+                    className="w-full rounded-xl bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
                   >
                     Book My Free Demo
                   </button>

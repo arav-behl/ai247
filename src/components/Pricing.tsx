@@ -73,18 +73,18 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="relative py-24 sm:py-32 section-gradient">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="relative py-28 sm:py-36 section-gradient">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Pricing
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Hire an AI Employee for a{" "}
             <span className="text-muted">Fraction of the Cost</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-muted text-lg mb-8">
+          <p className="mx-auto max-w-2xl text-muted text-lg mb-10">
             No hidden fees. No long-term contracts. Deploy in days, not months.
             Pay only for what you use.
           </p>
@@ -115,11 +115,11 @@ export default function Pricing() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-xl border p-8 transition-all duration-300 ${
+              className={`relative rounded-xl border p-10 transition-all duration-300 ${
                 plan.highlight
                   ? "border-accent/50 bg-card scale-[1.02] shadow-lg shadow-accent-glow"
                   : "border-border bg-card hover:border-border-light"
@@ -133,12 +133,12 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-                <p className="text-sm text-muted">{plan.description}</p>
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-3">{plan.name}</h3>
+                <p className="text-sm text-muted leading-relaxed">{plan.description}</p>
               </div>
 
-              <div className="mb-6">
+              <div className="mb-8">
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold">
                     {formatPrice(plan.priceUSD, plan.priceINR)}
@@ -156,7 +156,7 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`block w-full rounded-lg px-4 py-3 text-center text-sm font-medium transition-all ${
+                className={`block w-full rounded-xl px-6 py-3.5 text-center text-sm font-semibold transition-all ${
                   plan.highlight
                     ? "bg-accent text-white hover:bg-accent-hover"
                     : "border border-border text-foreground hover:bg-card-hover"
@@ -165,8 +165,8 @@ export default function Pricing() {
                 {plan.cta}
               </a>
 
-              <div className="mt-8 pt-6 border-t border-border">
-                <ul className="space-y-3">
+              <div className="mt-10 pt-8 border-t border-border">
+                <ul className="space-y-4">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm">
                       <svg
@@ -190,7 +190,7 @@ export default function Pricing() {
         </div>
 
         {/* Bottom note */}
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <p className="text-sm text-muted">
             All plans include enterprise-grade security, free onboarding, and
             a 14-day money-back guarantee.{" "}

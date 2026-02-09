@@ -57,14 +57,14 @@ const securityFeatures = [
 
 export default function Security() {
   return (
-    <section id="security" className="relative py-24 sm:py-32 section-gradient">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="security" className="relative py-28 sm:py-36 section-gradient">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Enterprise Security
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Security That Enterprises{" "}
             <span className="text-muted">Demand</span>
           </h2>
@@ -75,16 +75,16 @@ export default function Security() {
         </div>
 
         {/* Security features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {securityFeatures.map((feature, index) => (
             <div
               key={index}
-              className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:bg-card-hover hover:border-border-light"
+              className="group rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:bg-card-hover hover:border-border-light"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-semibold mb-3">{feature.title}</h3>
               <p className="text-sm text-muted leading-relaxed">
                 {feature.description}
               </p>
@@ -93,8 +93,8 @@ export default function Security() {
         </div>
 
         {/* Trust banner */}
-        <div className="mt-16 rounded-xl border border-border bg-card p-8 sm:p-12 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 text-muted">
+        <div className="mt-20 rounded-xl border border-border bg-card p-10 sm:p-14 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-16 text-muted">
             <div className="flex flex-col items-center gap-2">
               <span className="text-3xl font-bold text-foreground">256-bit</span>
               <span className="text-sm">AES Encryption</span>

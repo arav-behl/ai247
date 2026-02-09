@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center hero-gradient pt-16">
+    <section className="relative min-h-screen flex items-center justify-center hero-gradient pt-24 pb-20">
       {/* Background grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -9,9 +9,9 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted mb-8">
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2 text-sm text-muted mb-10">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-success"></span>
@@ -20,30 +20,30 @@ export default function Hero() {
         </div>
 
         {/* Main headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
           Your AI Employee,
           <br />
           <span className="gradient-text">Working 24/7</span>
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted leading-relaxed mb-10">
+        <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted leading-relaxed mb-12">
           Deploy enterprise-grade AI employees that handle customer support,
           manage operations, and automate workflows — around the clock. No
           holidays, no downtime, no burnout.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16">
           <a
             href="#contact"
-            className="w-full sm:w-auto rounded-lg bg-accent px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-accent-hover animate-pulse-glow"
+            className="w-full sm:w-auto rounded-xl bg-accent px-10 py-4 text-base font-semibold text-white transition-all hover:bg-accent-hover animate-pulse-glow"
           >
             Book a Demo
           </a>
           <a
             href="#how-it-works"
-            className="w-full sm:w-auto rounded-lg border border-border px-8 py-3.5 text-base font-medium text-foreground transition-all hover:bg-card"
+            className="w-full sm:w-auto rounded-xl border border-border px-10 py-4 text-base font-semibold text-foreground transition-all hover:bg-card"
           >
             See How It Works
           </a>
@@ -84,7 +84,7 @@ export default function Hero() {
         </div>
 
         {/* Dashboard preview */}
-        <div className="mt-16 mx-auto max-w-4xl">
+        <div className="mt-20 mx-auto max-w-4xl">
           <div className="rounded-xl border border-border bg-card p-1 shadow-2xl shadow-accent-glow">
             <div className="rounded-lg bg-background border border-border overflow-hidden">
               {/* Window chrome */}
@@ -97,26 +97,26 @@ export default function Hero() {
                 </div>
               </div>
               {/* Dashboard content mock */}
-              <div className="p-6 sm:p-8">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                  <div className="rounded-lg bg-card border border-border p-4">
+              <div className="p-8 sm:p-10">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                  <div className="rounded-lg bg-card border border-border p-5 text-center">
                     <p className="text-xs text-muted mb-1">Active AI Employees</p>
                     <p className="text-2xl font-bold text-accent">12</p>
                     <p className="text-xs text-success mt-1">All operational</p>
                   </div>
-                  <div className="rounded-lg bg-card border border-border p-4">
+                  <div className="rounded-lg bg-card border border-border p-5 text-center">
                     <p className="text-xs text-muted mb-1">Tasks Completed Today</p>
                     <p className="text-2xl font-bold">1,847</p>
                     <p className="text-xs text-success mt-1">+23% from yesterday</p>
                   </div>
-                  <div className="rounded-lg bg-card border border-border p-4">
+                  <div className="rounded-lg bg-card border border-border p-5 text-center">
                     <p className="text-xs text-muted mb-1">Cost Savings</p>
                     <p className="text-2xl font-bold text-success">$48,200</p>
                     <p className="text-xs text-muted mt-1">This month</p>
                   </div>
                 </div>
-                <div className="rounded-lg bg-card border border-border p-4">
-                  <div className="flex items-center justify-between mb-4">
+                <div className="rounded-lg bg-card border border-border p-6">
+                  <div className="flex items-center justify-between mb-5">
                     <p className="text-sm font-medium">AI Employee Activity</p>
                     <p className="text-xs text-muted">Live</p>
                   </div>

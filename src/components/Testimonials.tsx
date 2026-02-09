@@ -45,14 +45,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-28 sm:py-36">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             Trusted by Companies{" "}
             <span className="text-muted">Across the Globe</span>
           </h2>
@@ -63,14 +63,14 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border-light"
+              className="rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:border-border-light"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
@@ -84,12 +84,12 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-muted leading-relaxed mb-6">
+              <p className="text-sm text-muted leading-relaxed mb-8">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent font-semibold text-sm">
                   {testimonial.author
                     .split(" ")

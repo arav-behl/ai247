@@ -64,14 +64,14 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="features" className="relative py-28 sm:py-36">
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Capabilities
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
             One AI Employee.{" "}
             <span className="text-muted">Infinite Possibilities.</span>
           </h2>
@@ -83,16 +83,16 @@ export default function Features() {
         </div>
 
         {/* Features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:bg-card-hover hover:border-border-light"
+              className="group rounded-xl border border-border bg-card p-8 transition-all duration-300 hover:bg-card-hover hover:border-border-light"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-semibold mb-3">{feature.title}</h3>
               <p className="text-sm text-muted leading-relaxed">
                 {feature.description}
               </p>
