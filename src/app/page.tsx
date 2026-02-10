@@ -14,11 +14,17 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <div className="section-divider mx-auto max-w-5xl" />
         <Features />
+        <div className="section-divider mx-auto max-w-5xl" />
         <Security />
+        <div className="section-divider mx-auto max-w-5xl" />
         <HowItWorks />
+        <div className="section-divider mx-auto max-w-5xl" />
         <Pricing />
+        <div className="section-divider mx-auto max-w-5xl" />
         <Testimonials />
+        <div className="section-divider mx-auto max-w-5xl" />
         <CTA />
       </main>
       <Footer />

@@ -69,7 +69,27 @@ body {
 }
 
 .animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.6s ease-out both;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
 }
 
 .animate-pulse-glow {
@@ -117,4 +137,14 @@ body {
 
 .section-gradient {
   background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(59, 130, 246, 0.06), transparent);
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border) 50%, transparent);
+}
+
+select option {
+  background: var(--color-card);
+  color: var(--color-foreground);
 }

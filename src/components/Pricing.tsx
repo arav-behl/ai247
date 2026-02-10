@@ -115,13 +115,13 @@ export default function Pricing() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-xl border p-8 transition-all duration-300 ${
+              className={`relative rounded-xl border p-8 transition-all duration-300 flex flex-col ${
                 plan.highlight
-                  ? "border-accent/50 bg-card scale-[1.02] shadow-lg shadow-accent-glow"
+                  ? "border-accent/50 bg-card lg:scale-[1.02] shadow-lg shadow-accent-glow"
                   : "border-border bg-card hover:border-border-light"
               }`}
             >
@@ -165,7 +165,7 @@ export default function Pricing() {
                 {plan.cta}
               </a>
 
-              <div className="mt-8 pt-6 border-t border-border">
+              <div className="mt-8 pt-6 border-t border-border flex-1">
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm">

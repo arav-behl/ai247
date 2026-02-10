@@ -51,7 +51,7 @@ export default function HowItWorks() {
         {/* Steps */}
         <div className="relative">
           {/* Connecting line - desktop only */}
-          <div className="hidden lg:block absolute top-24 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-border"></div>
+          <div className="hidden lg:block absolute top-6 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-border"></div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (

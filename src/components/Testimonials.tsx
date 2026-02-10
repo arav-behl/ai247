@@ -45,7 +45,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-24 sm:py-32 section-gradient">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center mb-16">
@@ -67,7 +67,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border-light"
+              className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border-light flex flex-col"
             >
               {/* Stars */}
               <div className="flex gap-1 mb-4">
@@ -84,7 +84,7 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-muted leading-relaxed mb-6">
+              <p className="text-sm text-muted leading-relaxed mb-6 flex-1">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 

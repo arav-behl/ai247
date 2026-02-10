@@ -11,7 +11,7 @@ export default function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted mb-8">
+        <div className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm text-muted mb-8">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-success"></span>
@@ -20,21 +20,21 @@ export default function Hero() {
         </div>
 
         {/* Main headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
+        <h1 className="animate-fade-in-up animate-delay-100 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
           Your AI Employee,
           <br />
           <span className="gradient-text">Working 24/7</span>
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted leading-relaxed mb-10">
+        <p className="animate-fade-in-up animate-delay-200 mx-auto max-w-2xl text-lg sm:text-xl text-muted leading-relaxed mb-10">
           Deploy enterprise-grade AI employees that handle customer support,
           manage operations, and automate workflows — around the clock. No
           holidays, no downtime, no burnout.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <div className="animate-fade-in-up animate-delay-300 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <a
             href="#contact"
             className="w-full sm:w-auto rounded-lg bg-accent px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-accent-hover animate-pulse-glow"
@@ -50,7 +50,7 @@ export default function Hero() {
         </div>
 
         {/* Social proof */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm text-muted">
+        <div className="animate-fade-in-up animate-delay-400 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 text-sm text-muted">
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -84,7 +84,7 @@ export default function Hero() {
         </div>
 
         {/* Dashboard preview */}
-        <div className="mt-16 mx-auto max-w-4xl">
+        <div className="animate-fade-in-up animate-delay-500 mt-16 mx-auto max-w-4xl">
           <div className="rounded-xl border border-border bg-card p-1 shadow-2xl shadow-accent-glow">
             <div className="rounded-lg bg-background border border-border overflow-hidden">
               {/* Window chrome */}
