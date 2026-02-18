@@ -1,109 +1,59 @@
 const testimonials = [
   {
     quote:
-      "AI247 replaced our entire night shift support team. Our CSAT score went from 3.2 to 4.7 in three months. The ROI was immediate.",
+      "AI247 replaced our overnight support queue with fully governed automation. CSAT rose from 3.2 to 4.7 in under one quarter.",
     author: "Priya Sharma",
     role: "Head of Operations",
-    company: "TechServe Solutions, Mumbai",
+    company: "TechServe Solutions",
   },
   {
     quote:
-      "We deployed an AI sales assistant and saw a 40% increase in qualified leads within the first month. It follows up on every single prospect — something our team could never do.",
+      "Our AI sales employee handles lead qualification and follow-up without misses. Qualified pipeline volume jumped 40% in month one.",
     author: "Rajesh Mehta",
-    role: "VP of Sales",
-    company: "CloudNine Enterprises, Bangalore",
+    role: "VP Sales",
+    company: "CloudNine Enterprises",
   },
   {
     quote:
-      "The security standards sold us. SOC 2 compliance, data residency in India, and DPDPA compliance — it checked every box our legal team had.",
+      "Data residency and compliance support made procurement easy. The rollout moved from legal review to production very quickly.",
     author: "Sarah Chen",
     role: "CTO",
-    company: "FinEdge Inc., San Francisco",
-  },
-  {
-    quote:
-      "We were skeptical about AI handling customer complaints. After the pilot, our resolution time dropped from 4 hours to 12 minutes. We're now rolling out across all departments.",
-    author: "Amit Patel",
-    role: "CEO",
-    company: "QuickCommerce, Delhi",
-  },
-  {
-    quote:
-      "AI247's deployment speed is unmatched. We went from initial call to a fully operational AI employee in 36 hours. No other vendor came close.",
-    author: "Michael Torres",
-    role: "Director of Innovation",
-    company: "Apex Retail Group, New York",
-  },
-  {
-    quote:
-      "Managing inventory across 200+ SKUs was a nightmare. Our AI employee now handles reorder alerts, supplier communication, and demand forecasting automatically.",
-    author: "Deepika Nair",
-    role: "Supply Chain Manager",
-    company: "FreshBasket, Hyderabad",
+    company: "FinEdge",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full py-24 md:py-32 lg:py-40">
+    <section className="w-full py-20 md:py-28 lg:py-32">
       <div className="section-shell">
-        {/* Section header */}
-        <div className="text-center mb-16 md:mb-20">
-          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
-            Testimonials
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Trusted by Companies{" "}
-            <span className="text-muted">Across the Globe</span>
-          </h2>
-          <p className="mx-auto max-w-2xl text-muted text-base md:text-lg leading-relaxed px-4">
-            From startups in Bangalore to enterprises in New York — see why
-            businesses choose AI247 for their AI workforce.
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="section-kicker">Customer Results</span>
+          <h2 className="section-title">Trusted by Teams That Need Reliability</h2>
+          <p className="section-subtitle mx-auto">
+            Real outcomes from operations, sales, and security-focused leaders.
           </p>
         </div>
 
-        {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="rounded-2xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:border-border-light"
-            >
-              {/* Stars */}
-              <div className="flex gap-1.5 mb-4 md:mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className="h-4 w-4 md:h-5 md:w-5 text-yellow-500"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          {testimonials.map((testimonial) => (
+            <article key={testimonial.author} className="surface-card flex h-full flex-col p-6">
+              <div className="mb-5 flex items-center gap-1 text-amber-500">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <svg key={`${testimonial.author}-${index}`} className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
               </div>
 
-              {/* Quote */}
-              <p className="text-sm md:text-base text-muted leading-relaxed mb-6 md:mb-8">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
+              <p className="text-sm leading-relaxed text-muted sm:text-base">&ldquo;{testimonial.quote}&rdquo;</p>
 
-              {/* Author */}
-              <div className="flex items-center gap-3 md:gap-4">
-                <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-accent/10 text-accent font-semibold text-sm md:text-base">
-                  {testimonial.author
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
-                <div>
-                  <p className="text-sm md:text-base font-medium">{testimonial.author}</p>
-                  <p className="text-xs md:text-sm text-muted">
-                    {testimonial.role}, {testimonial.company}
-                  </p>
-                </div>
+              <div className="mt-6 border-t border-border pt-4">
+                <p className="text-base font-semibold text-foreground">{testimonial.author}</p>
+                <p className="text-sm text-muted">
+                  {testimonial.role}, {testimonial.company}
+                </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

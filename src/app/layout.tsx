@@ -1,5 +1,18 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, Sora } from "next/font/google";
 import "./globals.css";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "AI247 - Your AI Employee, Working 24/7",
@@ -29,12 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className="antialiased min-h-screen w-full overflow-x-hidden">
-        <div className="w-full max-w-[100vw] overflow-x-hidden">
-          {children}
-        </div>
-      </body>
+    <html lang="en" className={`${plusJakartaSans.variable} ${sora.variable}`}>
+      <body className="antialiased min-h-screen w-full overflow-x-hidden">{children}</body>
     </html>
   );
 }

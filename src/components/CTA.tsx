@@ -2,6 +2,21 @@
 
 import { useState } from "react";
 
+const highlights = [
+  {
+    title: "Free Discovery Session",
+    description: "We identify the first workflows that can produce measurable ROI quickly.",
+  },
+  {
+    title: "Custom Demo",
+    description: "See AI247 configured for your specific use case and operating constraints.",
+  },
+  {
+    title: "No Long-Term Lock-In",
+    description: "Start small, prove value, and scale only when the model is working for your team.",
+  },
+];
+
 export default function CTA() {
   const [formData, setFormData] = useState({
     name: "",
@@ -12,168 +27,107 @@ export default function CTA() {
   });
   const [submitted, setSubmitted] = useState(false);
 
+  const updateField = (field: keyof typeof formData, value: string) => {
+    setFormData((previous) => ({ ...previous, [field]: value }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In production, this would send to your API
     setSubmitted(true);
   };
 
   return (
-    <section id="contact" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
+    <section id="contact" className="section-gradient w-full py-20 md:py-28 lg:py-32">
       <div className="section-shell">
-        <div className="grid grid-cols-1 items-center gap-12 md:gap-16 lg:grid-cols-2 lg:gap-20">
-          {/* Left side - Copy */}
-          <div className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:text-left">
-            <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
-              Get Started
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 md:mb-8">
-              Ready to Hire Your First{" "}
-              <span className="gradient-text">AI Employee?</span>
-            </h2>
-            <p className="text-base md:text-lg text-muted leading-relaxed mb-8 md:mb-10">
-              Book a free demo with our team. We&apos;ll show you exactly how AI247
-              can automate your workflows, cut costs, and scale your
-              operations — all within 48 hours of signing up.
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10">
+          <div className="surface-card p-6 md:p-8 lg:p-10">
+            <span className="section-kicker">Get Started</span>
+            <h2 className="section-title">Ready to Deploy Your First AI Employee?</h2>
+            <p className="section-subtitle">
+              Book a working session and we will map your first production use case in one call.
             </p>
 
-            <div className="mx-auto max-w-xl space-y-6 md:space-y-8 lg:mx-0">
-              {[
-                {
-                  title: "Free 30-Minute Discovery Call",
-                  description:
-                    "We'll understand your business and identify where AI can have the most impact.",
-                },
-                {
-                  title: "Custom Demo & Proof of Concept",
-                  description:
-                    "See your AI employee in action with your actual use case before you commit.",
-                },
-                {
-                  title: "No Commitment Required",
-                  description:
-                    "14-day money-back guarantee. No long-term contracts. Cancel anytime.",
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 text-left md:gap-5">
-                  <div className="flex h-9 w-9 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-accent/10">
-                    <svg
-                      className="h-4 w-4 md:h-5 md:w-5 text-accent"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
+            <div className="mt-8 space-y-5">
+              {highlights.map((item) => (
+                <div key={item.title} className="flex gap-3 rounded-xl border border-border bg-white p-4">
+                  <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-accent">
+                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                  </div>
+                  </span>
                   <div>
-                    <h3 className="text-sm md:text-base font-semibold mb-1 md:mb-2">{item.title}</h3>
-                    <p className="text-sm md:text-base text-muted">{item.description}</p>
+                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <p className="mt-1 text-sm text-muted">{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right side - Form */}
-          <div className="mx-auto w-full max-w-2xl rounded-2xl border border-border bg-card p-6 md:p-8 lg:p-10">
+          <div className="surface-card p-6 md:p-8 lg:p-10">
             {submitted ? (
-              <div className="text-center py-12 md:py-16">
-                <div className="inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-success/10 mb-6 md:mb-8">
-                  <svg
-                    className="h-8 w-8 md:h-10 md:w-10 text-success"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
+              <div className="py-8 text-center md:py-10">
+                <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-success/15 text-success">
+                  <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
-                  Thank You!
-                </h3>
-                <p className="text-sm md:text-base text-muted">
-                  We&apos;ve received your request. Our team will reach out within
-                  24 hours to schedule your demo.
+                <h3 className="mt-5 text-2xl font-semibold">Thanks, request received.</h3>
+                <p className="mt-2 text-sm text-muted sm:text-base">
+                  Our team will contact you within 24 hours to schedule your walkthrough.
                 </p>
               </div>
             ) : (
               <>
-                <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Book a Demo</h3>
-                <p className="text-sm md:text-base text-muted mb-6 md:mb-8">
-                  Fill in your details and we&apos;ll get back to you within 24
-                  hours.
+                <h3 className="text-2xl font-semibold">Book a Demo</h3>
+                <p className="mt-1 text-sm text-muted sm:text-base">
+                  Share your details and we will get back with a tailored rollout plan.
                 </p>
-                <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+
+                <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Full Name
-                      </label>
+                      <label className="mb-2 block text-sm font-semibold">Full Name</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
+                        onChange={(e) => updateField("name", e.target.value)}
                         className="form-control"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Work Email
-                      </label>
+                      <label className="mb-2 block text-sm font-semibold">Work Email</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
+                        onChange={(e) => updateField("email", e.target.value)}
                         className="form-control"
                         placeholder="john@company.com"
                       />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Company Name
-                      </label>
+                      <label className="mb-2 block text-sm font-semibold">Company</label>
                       <input
                         type="text"
                         required
                         value={formData.company}
-                        onChange={(e) =>
-                          setFormData({ ...formData, company: e.target.value })
-                        }
+                        onChange={(e) => updateField("company", e.target.value)}
                         className="form-control"
                         placeholder="Acme Corp"
                       />
                     </div>
                     <div>
-                      <label className="mb-2 block text-sm font-medium">
-                        Company Size
-                      </label>
+                      <label className="mb-2 block text-sm font-semibold">Company Size</label>
                       <select
                         required
                         value={formData.employees}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            employees: e.target.value,
-                          })
-                        }
+                        onChange={(e) => updateField("employees", e.target.value)}
                         className="form-control"
                       >
                         <option value="">Select size</option>
@@ -185,28 +139,23 @@ export default function CTA() {
                       </select>
                     </div>
                   </div>
+
                   <div>
-                    <label className="mb-2 block text-sm font-medium">
-                      What would you like your AI employee to do?
-                    </label>
+                    <label className="mb-2 block text-sm font-semibold">Primary Workflow to Automate</label>
                     <textarea
                       value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
+                      onChange={(e) => updateField("message", e.target.value)}
                       rows={4}
                       className="form-control resize-none"
-                      placeholder="e.g., Handle customer support tickets, automate sales follow-ups, generate weekly reports..."
+                      placeholder="Example: customer support triage, lead qualification, or invoice processing"
                     />
                   </div>
-                  <button
-                    type="submit"
-                    className="button-base button-primary w-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
-                  >
-                    Book My Free Demo
+
+                  <button type="submit" className="button-base button-primary w-full">
+                    Book My Demo
                   </button>
-                  <p className="text-xs md:text-sm text-muted text-center pt-1 md:pt-2">
-                    No credit card required. We&apos;ll respond within 24 hours.
+                  <p className="text-center text-xs text-muted sm:text-sm">
+                    No credit card required. Typical response time: under 24 hours.
                   </p>
                 </form>
               </>

@@ -2,199 +2,137 @@
 
 import { useState } from "react";
 
-const plans = [
+type PricingPlan = {
+  name: string;
+  description: string;
+  priceUSD: number | null;
+  priceINR: number | null;
+  features: string[];
+  cta: string;
+  highlight: boolean;
+  badge?: string;
+};
+
+const plans: PricingPlan[] = [
   {
     name: "Starter",
-    description: "For small businesses getting started with AI automation",
+    description: "For teams beginning with focused workflow automation.",
     priceUSD: 499,
     priceINR: 39999,
-    period: "/month",
-    highlight: false,
     features: [
-      "1 AI Employee",
+      "1 AI employee",
       "Up to 5,000 interactions/month",
-      "Email & chat support channels",
-      "Basic analytics dashboard",
-      "Standard integrations (Slack, Email)",
-      "48-hour deployment",
-      "Email support",
+      "Email and chat channels",
+      "Core analytics dashboard",
+      "Standard integrations",
     ],
     cta: "Get Started",
+    highlight: false,
   },
   {
     name: "Professional",
-    description: "For growing companies that need powerful AI workforce",
+    description: "For growth-stage companies scaling customer and ops workflows.",
     priceUSD: 999,
     priceINR: 74999,
-    period: "/month",
-    highlight: true,
-    badge: "Most Popular",
     features: [
-      "Up to 5 AI Employees",
+      "Up to 5 AI employees",
       "Up to 50,000 interactions/month",
-      "All support channels (WhatsApp, Slack, etc.)",
-      "Advanced analytics & reporting",
-      "CRM & ERP integrations",
-      "24-hour priority deployment",
-      "Dedicated account manager",
-      "Custom training on your data",
+      "WhatsApp, Slack, email, and CRM",
+      "Advanced analytics and reporting",
+      "Priority onboarding support",
     ],
     cta: "Book a Demo",
+    highlight: true,
+    badge: "Most Popular",
   },
   {
     name: "Enterprise",
-    description: "For large organizations with custom requirements",
+    description: "For organizations needing dedicated infrastructure and controls.",
     priceUSD: null,
     priceINR: null,
-    period: "",
-    highlight: false,
     features: [
-      "Unlimited AI Employees",
+      "Unlimited AI employees",
       "Unlimited interactions",
-      "All channels + custom integrations",
-      "White-label option available",
-      "Dedicated infrastructure",
-      "On-premise / private cloud deployment",
-      "Custom SLA (up to 99.99%)",
-      "24/7 phone & Slack support",
-      "Quarterly business reviews",
+      "Dedicated infra or private cloud",
+      "Custom SLA up to 99.99%",
+      "24/7 enterprise support",
     ],
     cta: "Contact Sales",
+    highlight: false,
   },
 ];
+
+const usdFormatter = new Intl.NumberFormat("en-US");
+const inrFormatter = new Intl.NumberFormat("en-IN");
 
 export default function Pricing() {
   const [currency, setCurrency] = useState<"USD" | "INR">("USD");
 
   const formatPrice = (usd: number | null, inr: number | null) => {
     if (usd === null || inr === null) return "Custom";
-    if (currency === "USD") return `$${usd.toLocaleString()}`;
-    return `₹${inr.toLocaleString()}`;
+    return currency === "USD" ? `$${usdFormatter.format(usd)}` : `₹${inrFormatter.format(inr)}`;
   };
 
   return (
-    <section id="pricing" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
+    <section id="pricing" className="section-gradient w-full py-20 md:py-28 lg:py-32">
       <div className="section-shell">
-        {/* Section header */}
-        <div className="mx-auto mb-16 max-w-4xl text-center md:mb-20">
-          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
-            Pricing
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-            Hire an AI Employee for a{" "}
-            <span className="text-muted">Fraction of the Cost</span>
-          </h2>
-          <p className="mx-auto mb-8 max-w-2xl px-4 text-base leading-relaxed text-muted md:mb-10 md:text-lg">
-            No hidden fees. No long-term contracts. Deploy in days, not months.
-            Pay only for what you use.
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="section-kicker">Pricing</span>
+          <h2 className="section-title">Predictable Pricing, Fast ROI</h2>
+          <p className="section-subtitle mx-auto">
+            Start with one AI employee and scale as your operations expand. No hidden fees.
           </p>
 
-          {/* Currency toggle */}
-          <div className="mx-auto grid w-full max-w-sm grid-cols-2 gap-2 rounded-2xl border border-border bg-card p-2">
-            <button
-              type="button"
-              onClick={() => setCurrency("USD")}
-              className="button-toggle"
-              aria-pressed={currency === "USD"}
-            >
-              USD ($)
+          <div className="surface-card mx-auto mt-8 grid w-full max-w-xs grid-cols-2 gap-2 p-2">
+            <button type="button" onClick={() => setCurrency("USD")} className="button-toggle" aria-pressed={currency === "USD"}>
+              USD
             </button>
-            <button
-              type="button"
-              onClick={() => setCurrency("INR")}
-              className="button-toggle"
-              aria-pressed={currency === "INR"}
-            >
-              INR (₹)
+            <button type="button" onClick={() => setCurrency("INR")} className="button-toggle" aria-pressed={currency === "INR"}>
+              INR
             </button>
           </div>
         </div>
 
-        {/* Pricing cards */}
-        <div className="grid grid-cols-1 gap-8 pt-6 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
-          {plans.map((plan, index) => (
-            <div
-              key={index}
-              className={`relative flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 md:p-8 lg:p-10 ${
-                plan.highlight
-                  ? "border-accent/50 bg-card md:scale-[1.02] shadow-xl shadow-accent-glow"
-                  : "border-border bg-card hover:border-border-light"
+        <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-6">
+          {plans.map((plan) => (
+            <article
+              key={plan.name}
+              className={`surface-card relative flex flex-col p-6 md:p-8 ${
+                plan.highlight ? "border-accent/40 bg-white shadow-xl shadow-accent/15" : ""
               }`}
             >
-              {plan.badge && (
-                <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-accent px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm font-medium text-white whitespace-nowrap">
-                    {plan.badge}
-                  </span>
-                </div>
-              )}
+              {plan.badge ? (
+                <span className="absolute -top-3 left-6 rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">
+                  {plan.badge}
+                </span>
+              ) : null}
 
-              <div className="mb-7 md:mb-8">
-                <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">{plan.name}</h3>
-                <p className="text-sm md:text-base text-muted">{plan.description}</p>
+              <h3 className="text-2xl font-semibold">{plan.name}</h3>
+              <p className="mt-2 text-sm text-muted">{plan.description}</p>
+
+              <div className="mt-6">
+                <p className="text-4xl font-bold text-foreground">{formatPrice(plan.priceUSD, plan.priceINR)}</p>
+                {plan.priceUSD !== null ? <p className="mt-1 text-sm text-muted">per month</p> : null}
               </div>
 
-              <div className="mb-7 md:mb-8">
-                <div className="flex items-end gap-2 md:gap-3">
-                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                    {formatPrice(plan.priceUSD, plan.priceINR)}
-                  </span>
-                  {plan.priceUSD !== null && (
-                    <span className="text-muted text-sm md:text-base">{plan.period}</span>
-                  )}
-                </div>
-                {plan.priceUSD !== null && (
-                  <p className="text-xs md:text-sm text-muted mt-1 md:mt-2">
-                    per AI employee deployed
-                  </p>
-                )}
-              </div>
-
-              <a
-                href="#contact"
-                className={`button-base mt-auto w-full ${
-                  plan.highlight
-                    ? "button-primary"
-                    : "button-outline"
-                }`}
-              >
+              <a href="#contact" className={`button-base mt-6 w-full ${plan.highlight ? "button-primary" : "button-outline"}`}>
                 {plan.cta}
               </a>
 
-              <div className="mt-7 border-t border-border pt-6 md:mt-10 md:pt-8">
-                <ul className="space-y-3 md:space-y-4">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 md:gap-4 text-sm md:text-base">
-                      <svg
-                        className="h-5 w-5 md:h-6 md:w-6 text-success shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
+              <ul className="mt-6 space-y-3 border-t border-border pt-6">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2.5 text-sm text-muted sm:text-base">
+                    <span className="mt-1 inline-flex h-4 w-4 items-center justify-center rounded-full bg-success/15 text-success">
+                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-muted">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+                    </span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
-        </div>
-
-        {/* Bottom note */}
-        <div className="mt-12 md:mt-16 text-center px-4">
-          <p className="text-sm md:text-base text-muted">
-            All plans include enterprise-grade security, free onboarding, and
-            a 14-day money-back guarantee.{" "}
-            <a href="#contact" className="text-accent hover:underline">
-              Talk to sales
-            </a>{" "}
-            for custom volume pricing.
-          </p>
         </div>
       </div>
     </section>
