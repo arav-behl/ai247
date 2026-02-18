@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Sora } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const sora = Sora({
-  variable: "--font-sora",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -25,8 +19,6 @@ export const metadata: Metadata = {
     "24/7 AI",
     "AI workforce",
     "business automation",
-    "AI India",
-    "AI SaaS",
   ],
   openGraph: {
     title: "AI247 - Your AI Employee, Working 24/7",
@@ -42,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${sora.variable}`}>
+    <html lang="en" className={inter.variable}>
       <body className="antialiased min-h-screen w-full overflow-x-hidden">{children}</body>
     </html>
   );

@@ -37,9 +37,10 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="section-gradient w-full py-20 md:py-28 lg:py-32">
+    <section id="contact" className="section-gradient py-20 md:py-28 lg:py-32">
       <div className="section-shell">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-10">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10">
+          {/* Left: benefits */}
           <div className="surface-card p-6 md:p-8 lg:p-10">
             <span className="section-kicker">Get Started</span>
             <h2 className="section-title">Ready to Deploy Your First AI Employee?</h2>
@@ -47,16 +48,29 @@ export default function CTA() {
               Book a working session and we will map your first production use case in one call.
             </p>
 
-            <div className="mt-8 space-y-5">
+            <div className="mt-8 space-y-4">
               {highlights.map((item) => (
-                <div key={item.title} className="flex gap-3 rounded-xl border border-border bg-white p-4">
-                  <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-accent">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <div
+                  key={item.title}
+                  className="flex gap-3 rounded-lg border border-border bg-white p-4"
+                >
+                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+                    <svg
+                      className="h-3 w-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </span>
                   <div>
-                    <h3 className="text-base font-semibold">{item.title}</h3>
+                    <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
                     <p className="mt-1 text-sm text-muted">{item.description}</p>
                   </div>
                 </div>
@@ -64,12 +78,23 @@ export default function CTA() {
             </div>
           </div>
 
+          {/* Right: form */}
           <div className="surface-card p-6 md:p-8 lg:p-10">
             {submitted ? (
               <div className="py-8 text-center md:py-10">
-                <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-success/15 text-success">
-                  <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-accent/15 text-accent">
+                  <svg
+                    className="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
                 <h3 className="mt-5 text-2xl font-semibold">Thanks, request received.</h3>
@@ -141,7 +166,9 @@ export default function CTA() {
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-sm font-semibold">Primary Workflow to Automate</label>
+                    <label className="mb-2 block text-sm font-semibold">
+                      Primary Workflow to Automate
+                    </label>
                     <textarea
                       value={formData.message}
                       onChange={(e) => updateField("message", e.target.value)}
@@ -151,7 +178,7 @@ export default function CTA() {
                     />
                   </div>
 
-                  <button type="submit" className="button-base button-primary w-full">
+                  <button type="submit" className="button-base button-primary w-full py-3">
                     Book My Demo
                   </button>
                   <p className="text-center text-xs text-muted sm:text-sm">

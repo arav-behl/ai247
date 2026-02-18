@@ -1,59 +1,93 @@
 const testimonials = [
   {
     quote:
-      "AI247 replaced our overnight support queue with fully governed automation. CSAT rose from 3.2 to 4.7 in under one quarter.",
-    author: "Priya Sharma",
-    role: "Head of Operations",
-    company: "TechServe Solutions",
+      "It feels like hiring an employee rather than opening another chat window.",
+    author: "MacStories",
+    role: "Review",
   },
   {
     quote:
-      "Our AI sales employee handles lead qualification and follow-up without misses. Qualified pipeline volume jumped 40% in month one.",
-    author: "Rajesh Mehta",
-    role: "VP Sales",
-    company: "CloudNine Enterprises",
+      "Within an hour it had built a fully featured kanban board where I could assign it tasks and track their state.",
+    author: "MacStories",
+    role: "Review",
   },
   {
     quote:
-      "Data residency and compliance support made procurement easy. The rollout moved from legal review to production very quickly.",
-    author: "Sarah Chen",
-    role: "CTO",
-    company: "FinEdge",
+      "One user cleared nearly 6,000 emails from their inbox on the first day.",
+    author: "Turing College",
+    role: "",
+  },
+  {
+    quote:
+      "I cancelled $400 in AI subscriptions today. This isn't ChatGPT. It's an AI that actually lives in my business.",
+    author: "Business owner",
+    role: "Clawdbot user",
+  },
+  {
+    quote:
+      "Genuinely the most incredible sci-fi takeoff-adjacent thing I have seen recently.",
+    author: "Andrej Karpathy",
+    role: "Former Director of AI, Tesla",
+  },
+  {
+    quote:
+      "Your slots are going insanely fast. Already sent referrals to friends.",
+    author: "Nemke Kostic",
+    role: "BBQ Capital",
+  },
+  {
+    quote:
+      "You're solving a problem that people like me probably wouldn't take the time to solve ourselves.",
+    author: "Andrew Blanchard",
+    role: "CEO, insurance & benefits technology",
   },
 ];
 
-export default function Testimonials() {
+function QuoteCard({ quote, author, role }: { quote: string; author: string; role: string }) {
   return (
-    <section className="w-full py-20 md:py-28 lg:py-32">
+    <div className="surface-card mx-3 inline-block w-[340px] shrink-0 p-6 align-top">
+      <p className="text-sm leading-relaxed text-muted sm:text-base">
+        &ldquo;{quote}&rdquo;
+      </p>
+      <div className="mt-4 border-t border-border pt-3">
+        <p className="text-sm font-semibold text-foreground">{author}</p>
+        {role ? <p className="text-xs text-muted">{role}</p> : null}
+      </div>
+    </div>
+  );
+}
+
+export default function Testimonials() {
+  const row1 = testimonials.slice(0, 4);
+  const row2 = testimonials.slice(4);
+
+  return (
+    <section className="py-20 md:py-28 lg:py-32 overflow-hidden">
       <div className="section-shell">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="section-kicker">Customer Results</span>
-          <h2 className="section-title">Trusted by Teams That Need Reliability</h2>
+          <span className="section-kicker">From Real Businesses</span>
+          <h2 className="section-title">What Clawdbot did for them today</h2>
           <p className="section-subtitle mx-auto">
-            Real outcomes from operations, sales, and security-focused leaders.
+            These aren&apos;t hypotheticals. These are workflows running right now in real
+            businesses.
           </p>
         </div>
+      </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {testimonials.map((testimonial) => (
-            <article key={testimonial.author} className="surface-card flex h-full flex-col p-6">
-              <div className="mb-5 flex items-center gap-1 text-amber-500">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <svg key={`${testimonial.author}-${index}`} className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
+      {/* Marquee row 1 - scrolls left */}
+      <div className="relative mt-12 overflow-hidden">
+        <div className="flex min-w-max animate-marquee-left">
+          {[...row1, ...row1].map((t, i) => (
+            <QuoteCard key={`r1-${i}`} quote={t.quote} author={t.author} role={t.role} />
+          ))}
+        </div>
+      </div>
 
-              <p className="text-sm leading-relaxed text-muted sm:text-base">&ldquo;{testimonial.quote}&rdquo;</p>
-
-              <div className="mt-6 border-t border-border pt-4">
-                <p className="text-base font-semibold text-foreground">{testimonial.author}</p>
-                <p className="text-sm text-muted">
-                  {testimonial.role}, {testimonial.company}
-                </p>
-              </div>
-            </article>
+      {/* Marquee row 2 - scrolls right */}
+      <div className="relative mt-6 overflow-hidden">
+        <div className="flex min-w-max animate-marquee-right">
+          {[...row2, ...row2, ...row2].map((t, i) => (
+            <QuoteCard key={`r2-${i}`} quote={t.quote} author={t.author} role={t.role} />
           ))}
         </div>
       </div>

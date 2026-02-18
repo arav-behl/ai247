@@ -1,93 +1,102 @@
 const steps = [
   {
-    number: "01",
-    title: "Discovery",
-    description: "We map your workflows, channels, and quality bars in a focused working session.",
-    detail: "30-minute session",
+    number: 1,
+    title: "Kickoff",
+    description:
+      "We align on goals, map your systems (Google/Microsoft stack), assess security posture, and plan integrations.",
   },
   {
-    number: "02",
-    title: "Deployment",
-    description: "We configure and train your AI employee using your operating playbooks and data.",
-    detail: "Go-live within 48 hours",
+    number: 2,
+    title: "Build & Harden",
+    description:
+      "Install OpenClaw, harden the environment, connect integrations, build workflows, configure your AI employee's persona.",
   },
   {
-    number: "03",
-    title: "Validation",
-    description: "You review outputs in a controlled rollout while we tune prompts and policies.",
-    detail: "Human-in-the-loop checks",
+    number: 3,
+    title: "Go Live",
+    description:
+      "Your AI employee starts working the same day. Training session for your team. Documentation delivered.",
   },
   {
-    number: "04",
-    title: "Scale",
-    description: "Expand to new processes and teams with the same governance and analytics layer.",
-    detail: "No long-term lock-in",
+    number: 4,
+    title: "14-Day Hypercare",
+    description:
+      "Fast fixes, tuning, and adjustments via your dedicated Slack Connect channel. We dial in the workflows.",
   },
-];
-
-const withoutAi = [
-  "High manual load for repetitive workflows",
-  "Slow response times outside office hours",
-  "Reporting and follow-ups slip through gaps",
-  "Scaling requires more hiring and training",
-];
-
-const withAi = [
-  "AI handles repeatable tasks instantly and consistently",
-  "24/7 response coverage across key channels",
-  "Automated reporting and proactive alerts",
-  "Scale in days without adding operational headcount",
+  {
+    number: 5,
+    title: "Managed Care",
+    description:
+      "Ongoing monitoring, updates, drift checks, and scaling support. Your AI employee stays sharp.",
+  },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="w-full py-20 md:py-28 lg:py-32">
+    <section id="how-it-works" className="py-20 md:py-28 lg:py-32">
       <div className="section-shell">
+        {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="section-kicker">How It Works</span>
-          <h2 className="section-title">Production-Ready in 48 Hours</h2>
+          <h2 className="section-title">Live in under a day. Optimized over weeks.</h2>
           <p className="section-subtitle mx-auto">
-            We manage deployment complexity end-to-end so your team can start seeing value quickly.
+            Most teams go live same-day. The hypercare period fine-tunes everything to your
+            workflows.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {steps.map((step) => (
-            <article key={step.number} className="surface-card p-6">
-              <div className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold text-accent">
-                Step {step.number}
-              </div>
-              <h3 className="mt-4 text-xl font-semibold">{step.title}</h3>
-              <p className="mt-2 text-sm text-muted sm:text-base">{step.description}</p>
-              <p className="mt-4 text-sm font-semibold text-foreground">{step.detail}</p>
-            </article>
-          ))}
-        </div>
+        {/* Timeline */}
+        <div className="relative mt-16">
+          {/* Vertical center line - desktop only */}
+          <div className="absolute left-1/2 top-0 bottom-0 hidden w-px -translate-x-1/2 bg-border md:block" />
 
-        <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
-          <article className="surface-card p-6 md:p-8">
-            <h3 className="text-xl font-semibold text-foreground md:text-2xl">Without AI247</h3>
-            <ul className="mt-5 space-y-3">
-              {withoutAi.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-muted sm:text-base">
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-red-500" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
+          <div className="space-y-12 md:space-y-0">
+            {steps.map((step, i) => {
+              const isLeft = i % 2 === 0;
 
-          <article className="surface-card border-accent/30 bg-gradient-to-b from-white to-accent/5 p-6 md:p-8">
-            <h3 className="text-xl font-semibold text-foreground md:text-2xl">With AI247</h3>
-            <ul className="mt-5 space-y-3">
-              {withAi.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-foreground sm:text-base">
-                  <span className="mt-1.5 h-2 w-2 rounded-full bg-success" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </article>
+              return (
+                <div key={step.number} className="relative md:flex md:items-center md:py-10">
+                  {/* Left column */}
+                  <div className={`hidden md:block md:w-1/2 md:pr-12 ${!isLeft ? "md:invisible" : ""}`}>
+                    {isLeft && (
+                      <div className="text-right">
+                        <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
+                        <p className="mt-2 text-sm text-muted sm:text-base">{step.description}</p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Center circle - desktop */}
+                  <div className="absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 md:flex">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white text-lg font-bold shadow-lg">
+                      {step.number}
+                    </div>
+                  </div>
+
+                  {/* Mobile layout: circle + text inline */}
+                  <div className="flex items-start gap-4 md:hidden">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white font-bold">
+                      {step.number}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                      <p className="mt-1 text-sm text-muted">{step.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Right column */}
+                  <div className={`hidden md:block md:w-1/2 md:pl-12 ${isLeft ? "md:invisible" : ""}`}>
+                    {!isLeft && (
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
+                        <p className="mt-2 text-sm text-muted sm:text-base">{step.description}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
