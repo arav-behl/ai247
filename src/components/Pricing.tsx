@@ -73,27 +73,27 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="relative py-24 sm:py-32 section-gradient">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-16 md:mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Pricing
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Hire an AI Employee for a{" "}
             <span className="text-muted">Fraction of the Cost</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-muted text-lg mb-8">
+          <p className="mx-auto max-w-2xl text-muted text-base md:text-lg leading-relaxed mb-8 md:mb-10 px-4">
             No hidden fees. No long-term contracts. Deploy in days, not months.
             Pay only for what you use.
           </p>
 
           {/* Currency toggle */}
-          <div className="inline-flex items-center rounded-lg border border-border bg-card p-1">
+          <div className="inline-flex items-center rounded-xl border border-border bg-card p-1.5 md:p-2">
             <button
               onClick={() => setCurrency("USD")}
-              className={`rounded-md px-4 py-2 text-sm font-medium transition-all ${
+              className={`rounded-lg px-5 md:px-6 py-2.5 md:py-3 text-sm md:text-base font-medium transition-all ${
                 currency === "USD"
                   ? "bg-accent text-white"
                   : "text-muted hover:text-foreground"
@@ -103,7 +103,7 @@ export default function Pricing() {
             </button>
             <button
               onClick={() => setCurrency("INR")}
-              className={`rounded-md px-4 py-2 text-sm font-medium transition-all ${
+              className={`rounded-lg px-5 md:px-6 py-2.5 md:py-3 text-sm md:text-base font-medium transition-all ${
                 currency === "INR"
                   ? "bg-accent text-white"
                   : "text-muted hover:text-foreground"
@@ -115,40 +115,40 @@ export default function Pricing() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 items-start pt-6">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-xl border p-8 transition-all duration-300 ${
+              className={`relative rounded-2xl border p-6 md:p-8 lg:p-10 transition-all duration-300 ${
                 plan.highlight
-                  ? "border-accent/50 bg-card scale-[1.02] shadow-lg shadow-accent-glow"
+                  ? "border-accent/50 bg-card md:scale-[1.02] shadow-xl shadow-accent-glow"
                   : "border-border bg-card hover:border-border-light"
               }`}
             >
               {plan.badge && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="rounded-full bg-accent px-4 py-1 text-xs font-medium text-white">
+                <div className="absolute -top-3 md:-top-4 left-1/2 -translate-x-1/2">
+                  <span className="rounded-full bg-accent px-4 md:px-5 py-1 md:py-1.5 text-xs md:text-sm font-medium text-white whitespace-nowrap">
                     {plan.badge}
                   </span>
                 </div>
               )}
 
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
-                <p className="text-sm text-muted">{plan.description}</p>
+              <div className="mb-6 md:mb-8">
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">{plan.name}</h3>
+                <p className="text-sm md:text-base text-muted">{plan.description}</p>
               </div>
 
-              <div className="mb-6">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold">
+              <div className="mb-6 md:mb-8">
+                <div className="flex items-baseline gap-1 md:gap-2">
+                  <span className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     {formatPrice(plan.priceUSD, plan.priceINR)}
                   </span>
                   {plan.priceUSD !== null && (
-                    <span className="text-muted text-sm">{plan.period}</span>
+                    <span className="text-muted text-sm md:text-base">{plan.period}</span>
                   )}
                 </div>
                 {plan.priceUSD !== null && (
-                  <p className="text-xs text-muted mt-1">
+                  <p className="text-xs md:text-sm text-muted mt-1 md:mt-2">
                     per AI employee deployed
                   </p>
                 )}
@@ -156,7 +156,7 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`block w-full rounded-lg px-4 py-3 text-center text-sm font-medium transition-all ${
+                className={`block w-full rounded-xl px-4 md:px-6 py-3 md:py-4 text-center text-sm md:text-base font-medium transition-all ${
                   plan.highlight
                     ? "bg-accent text-white hover:bg-accent-hover"
                     : "border border-border text-foreground hover:bg-card-hover"
@@ -165,12 +165,12 @@ export default function Pricing() {
                 {plan.cta}
               </a>
 
-              <div className="mt-8 pt-6 border-t border-border">
-                <ul className="space-y-3">
+              <div className="mt-6 md:mt-10 pt-6 md:pt-8 border-t border-border">
+                <ul className="space-y-3 md:space-y-4">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm">
+                    <li key={i} className="flex items-start gap-3 md:gap-4 text-sm md:text-base">
                       <svg
-                        className="h-5 w-5 text-success shrink-0"
+                        className="h-5 w-5 md:h-6 md:w-6 text-success shrink-0"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -190,8 +190,8 @@ export default function Pricing() {
         </div>
 
         {/* Bottom note */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-muted">
+        <div className="mt-12 md:mt-16 text-center px-4">
+          <p className="text-sm md:text-base text-muted">
             All plans include enterprise-grade security, free onboarding, and
             a 14-day money-back guarantee.{" "}
             <a href="#contact" className="text-accent hover:underline">

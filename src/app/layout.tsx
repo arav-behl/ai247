@@ -30,8 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="antialiased">
-        {children}
+      <body className="antialiased min-h-screen w-full overflow-x-hidden">
+        <div className="w-full max-w-[100vw] overflow-x-hidden">
+          {children}
+        </div>
       </body>
     </html>
   );

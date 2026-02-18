@@ -57,35 +57,35 @@ const securityFeatures = [
 
 export default function Security() {
   return (
-    <section id="security" className="relative py-24 sm:py-32 section-gradient">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="security" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-16 md:mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Enterprise Security
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Security That Enterprises{" "}
             <span className="text-muted">Demand</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-muted text-lg">
+          <p className="mx-auto max-w-2xl text-muted text-base md:text-lg leading-relaxed px-4">
             We built AI247 with enterprise-grade security from day one. Your
             data, your rules — we just make the AI work.
           </p>
         </div>
 
         {/* Security features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {securityFeatures.map((feature, index) => (
             <div
               key={index}
-              className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:bg-card-hover hover:border-border-light"
+              className="group rounded-2xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:bg-card-hover hover:border-border-light"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
+              <div className="mb-4 md:mb-5 flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">{feature.title}</h3>
+              <p className="text-sm md:text-base text-muted leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -93,26 +93,23 @@ export default function Security() {
         </div>
 
         {/* Trust banner */}
-        <div className="mt-16 rounded-xl border border-border bg-card p-8 sm:p-12 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 text-muted">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-3xl font-bold text-foreground">256-bit</span>
-              <span className="text-sm">AES Encryption</span>
+        <div className="mt-16 md:mt-20 rounded-2xl border border-border bg-card p-8 md:p-12 lg:p-14 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-muted">
+            <div className="flex flex-col items-center gap-2 md:gap-3">
+              <span className="text-2xl md:text-4xl font-bold text-foreground">256-bit</span>
+              <span className="text-xs md:text-sm">AES Encryption</span>
             </div>
-            <div className="hidden sm:block h-12 w-px bg-border"></div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-3xl font-bold text-foreground">99.9%</span>
-              <span className="text-sm">Uptime SLA</span>
+            <div className="flex flex-col items-center gap-2 md:gap-3">
+              <span className="text-2xl md:text-4xl font-bold text-foreground">99.9%</span>
+              <span className="text-xs md:text-sm">Uptime SLA</span>
             </div>
-            <div className="hidden sm:block h-12 w-px bg-border"></div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-3xl font-bold text-foreground">0</span>
-              <span className="text-sm">Data Breaches</span>
+            <div className="flex flex-col items-center gap-2 md:gap-3">
+              <span className="text-2xl md:text-4xl font-bold text-foreground">0</span>
+              <span className="text-xs md:text-sm">Data Breaches</span>
             </div>
-            <div className="hidden sm:block h-12 w-px bg-border"></div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-3xl font-bold text-foreground">24/7</span>
-              <span className="text-sm">Security Monitoring</span>
+            <div className="flex flex-col items-center gap-2 md:gap-3">
+              <span className="text-2xl md:text-4xl font-bold text-foreground">24/7</span>
+              <span className="text-xs md:text-sm">Security Monitoring</span>
             </div>
           </div>
         </div>

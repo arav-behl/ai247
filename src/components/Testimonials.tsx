@@ -45,36 +45,36 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full py-24 md:py-32 lg:py-40">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+        <div className="text-center mb-16 md:mb-20">
+          <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Testimonials
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Trusted by Companies{" "}
             <span className="text-muted">Across the Globe</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-muted text-lg">
+          <p className="mx-auto max-w-2xl text-muted text-base md:text-lg leading-relaxed px-4">
             From startups in Bangalore to enterprises in New York — see why
             businesses choose AI247 for their AI workforce.
           </p>
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border-light"
+              className="rounded-2xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:border-border-light"
             >
               {/* Stars */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1.5 mb-4 md:mb-6">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
-                    className="h-4 w-4 text-yellow-500"
+                    className="h-4 w-4 md:h-5 md:w-5 text-yellow-500"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -84,21 +84,21 @@ export default function Testimonials() {
               </div>
 
               {/* Quote */}
-              <p className="text-sm text-muted leading-relaxed mb-6">
+              <p className="text-sm md:text-base text-muted leading-relaxed mb-6 md:mb-8">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 text-accent font-semibold text-sm">
+              <div className="flex items-center gap-3 md:gap-4">
+                <div className="flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-accent/10 text-accent font-semibold text-sm md:text-base">
                   {testimonial.author
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </div>
                 <div>
-                  <p className="text-sm font-medium">{testimonial.author}</p>
-                  <p className="text-xs text-muted">
+                  <p className="text-sm md:text-base font-medium">{testimonial.author}</p>
+                  <p className="text-xs md:text-sm text-muted">
                     {testimonial.role}, {testimonial.company}
                   </p>
                 </div>

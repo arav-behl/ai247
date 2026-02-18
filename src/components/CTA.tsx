@@ -19,25 +19,25 @@ export default function CTA() {
   };
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 section-gradient">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="contact" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
           {/* Left side - Copy */}
           <div>
-            <p className="text-sm font-medium text-accent mb-3 tracking-wide uppercase">
+            <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
               Get Started
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6 md:mb-8">
               Ready to Hire Your First{" "}
               <span className="gradient-text">AI Employee?</span>
             </h2>
-            <p className="text-lg text-muted leading-relaxed mb-8">
+            <p className="text-base md:text-lg text-muted leading-relaxed mb-8 md:mb-10">
               Book a free demo with our team. We&apos;ll show you exactly how AI247
               can automate your workflows, cut costs, and scale your
               operations — all within 48 hours of signing up.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-6 md:space-y-8">
               {[
                 {
                   title: "Free 30-Minute Discovery Call",
@@ -55,10 +55,10 @@ export default function CTA() {
                     "14-day money-back guarantee. No long-term contracts. Cancel anytime.",
                 },
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/10">
+                <div key={i} className="flex items-start gap-4 md:gap-5">
+                  <div className="flex h-9 w-9 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-accent/10">
                     <svg
-                      className="h-4 w-4 text-accent"
+                      className="h-4 w-4 md:h-5 md:w-5 text-accent"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -70,8 +70,8 @@ export default function CTA() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-sm font-semibold mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted">{item.description}</p>
+                    <h3 className="text-sm md:text-base font-semibold mb-1 md:mb-2">{item.title}</h3>
+                    <p className="text-sm md:text-base text-muted">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -79,12 +79,12 @@ export default function CTA() {
           </div>
 
           {/* Right side - Form */}
-          <div className="rounded-xl border border-border bg-card p-8">
+          <div className="rounded-2xl border border-border bg-card p-6 md:p-8 lg:p-10">
             {submitted ? (
-              <div className="text-center py-12">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-success/10 mb-6">
+              <div className="text-center py-12 md:py-16">
+                <div className="inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-success/10 mb-6 md:mb-8">
                   <svg
-                    className="h-8 w-8 text-success"
+                    className="h-8 w-8 md:h-10 md:w-10 text-success"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -97,25 +97,25 @@ export default function CTA() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
                   Thank You!
                 </h3>
-                <p className="text-muted">
+                <p className="text-sm md:text-base text-muted">
                   We&apos;ve received your request. Our team will reach out within
                   24 hours to schedule your demo.
                 </p>
               </div>
             ) : (
               <>
-                <h3 className="text-xl font-semibold mb-2">Book a Demo</h3>
-                <p className="text-sm text-muted mb-6">
+                <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">Book a Demo</h3>
+                <p className="text-sm md:text-base text-muted mb-6 md:mb-8">
                   Fill in your details and we&apos;ll get back to you within 24
                   hours.
                 </p>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-1.5">
+                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
                         Full Name
                       </label>
                       <input
@@ -125,12 +125,12 @@ export default function CTA() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1.5">
+                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
                         Work Email
                       </label>
                       <input
@@ -140,14 +140,14 @@ export default function CTA() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                         placeholder="john@company.com"
                       />
                     </div>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <div>
-                      <label className="block text-sm font-medium mb-1.5">
+                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
                         Company Name
                       </label>
                       <input
@@ -157,12 +157,12 @@ export default function CTA() {
                         onChange={(e) =>
                           setFormData({ ...formData, company: e.target.value })
                         }
-                        className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                         placeholder="Acme Corp"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-1.5">
+                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
                         Company Size
                       </label>
                       <select
@@ -174,7 +174,7 @@ export default function CTA() {
                             employees: e.target.value,
                           })
                         }
-                        className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                       >
                         <option value="">Select size</option>
                         <option value="1-10">1-10 employees</option>
@@ -186,7 +186,7 @@ export default function CTA() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-1.5">
+                    <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
                       What would you like your AI employee to do?
                     </label>
                     <textarea
@@ -195,17 +195,17 @@ export default function CTA() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       rows={4}
-                      className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent resize-none"
+                      className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent resize-none"
                       placeholder="e.g., Handle customer support tickets, automate sales follow-ups, generate weekly reports..."
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full rounded-lg bg-accent px-4 py-3 text-sm font-medium text-white transition-all hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+                    className="w-full rounded-xl bg-accent px-5 md:px-6 py-3 md:py-4 text-sm md:text-base font-medium text-white transition-all hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
                   >
                     Book My Free Demo
                   </button>
-                  <p className="text-xs text-muted text-center">
+                  <p className="text-xs md:text-sm text-muted text-center pt-1 md:pt-2">
                     No credit card required. We&apos;ll respond within 24 hours.
                   </p>
                 </form>
