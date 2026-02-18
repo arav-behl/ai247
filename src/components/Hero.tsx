@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center hero-gradient pt-20 pb-16">
+    <section className="relative flex min-h-screen w-full items-center justify-center hero-gradient pb-20 pt-28 md:pt-32">
       {/* Background grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.03]"
@@ -9,9 +9,9 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <div className="relative section-shell text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 md:gap-3 rounded-full border border-border bg-card px-3 md:px-5 py-1.5 md:py-2 text-xs md:text-sm text-muted mb-8 md:mb-10">
+        <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border bg-card px-4 py-2 text-sm text-muted md:mb-10 md:gap-3 md:px-5">
           <span className="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 md:h-2.5 md:w-2.5 rounded-full bg-success"></span>
@@ -20,37 +20,37 @@ export default function Hero() {
         </div>
 
         {/* Main headline */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1] mb-6 md:mb-8 px-4">
+        <h1 className="mx-auto mb-6 max-w-5xl px-4 text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:mb-8 md:text-5xl lg:text-6xl xl:text-7xl">
           Your AI Employee,
           <br />
           <span className="gradient-text">Working 24/7</span>
         </h1>
 
         {/* Subheadline */}
-        <p className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl text-muted leading-relaxed mb-10 md:mb-12 px-4">
+        <p className="mx-auto mb-10 max-w-3xl px-4 text-base leading-relaxed text-muted sm:text-lg md:mb-12 md:text-xl">
           Deploy enterprise-grade AI employees that handle customer support,
           manage operations, and automate workflows — around the clock. No
           holidays, no downtime, no burnout.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 mb-16 md:mb-20 px-4">
+        <div className="mb-16 flex flex-col items-center justify-center gap-4 px-4 sm:flex-row md:mb-20 md:gap-6">
           <a
             href="#contact"
-            className="w-full sm:w-auto rounded-xl bg-accent px-8 md:px-10 py-3 md:py-4 text-sm md:text-base font-medium text-white transition-all hover:bg-accent-hover animate-pulse-glow"
+            className="button-base button-primary animate-pulse-glow w-full sm:w-auto sm:min-w-[12.5rem]"
           >
             Book a Demo
           </a>
           <a
             href="#how-it-works"
-            className="w-full sm:w-auto rounded-xl border border-border px-8 md:px-10 py-3 md:py-4 text-sm md:text-base font-medium text-foreground transition-all hover:bg-card"
+            className="button-base button-outline w-full sm:w-auto sm:min-w-[12.5rem]"
           >
             See How It Works
           </a>
         </div>
 
         {/* Social proof */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-12 text-xs md:text-sm text-muted px-4">
+        <div className="flex flex-col items-center justify-center gap-5 px-4 text-sm text-muted sm:flex-row sm:gap-8 lg:gap-12">
           <div className="flex items-center gap-2">
             <svg className="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
               <path
@@ -84,7 +84,7 @@ export default function Hero() {
         </div>
 
         {/* Dashboard preview */}
-        <div className="mt-20 mx-auto max-w-4xl">
+        <div className="mx-auto mt-16 max-w-5xl md:mt-20">
           <div className="rounded-2xl border border-border bg-card p-1.5 shadow-2xl shadow-accent-glow">
             <div className="rounded-xl bg-background border border-border overflow-hidden">
               {/* Window chrome */}
@@ -97,8 +97,8 @@ export default function Hero() {
                 </div>
               </div>
               {/* Dashboard content mock */}
-              <div className="p-8 sm:p-10">
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+              <div className="p-6 sm:p-8 md:p-10">
+                <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
                   <div className="rounded-xl bg-card border border-border p-6">
                     <p className="text-sm text-muted mb-2">Active AI Employees</p>
                     <p className="text-3xl font-bold text-accent">12</p>
@@ -116,7 +116,7 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="rounded-xl bg-card border border-border p-6">
-                  <div className="flex items-center justify-between mb-5">
+                  <div className="mb-5 flex items-center justify-between gap-4">
                     <p className="text-base font-medium">AI Employee Activity</p>
                     <p className="text-sm text-muted">Live</p>
                   </div>
@@ -126,7 +126,7 @@ export default function Hero() {
                       { name: "Data Analyst", task: "Generating Q4 report", status: "active" },
                       { name: "Sales Assistant", task: "Following up with 3 leads", status: "active" },
                     ].map((agent, i) => (
-                      <div key={i} className="flex items-center justify-between rounded-lg bg-background border border-border px-5 py-4">
+                      <div key={i} className="flex flex-col gap-3 rounded-lg border border-border bg-background px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
                         <div className="flex items-center gap-4">
                           <span className="relative flex h-2.5 w-2.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
@@ -137,7 +137,7 @@ export default function Hero() {
                             <p className="text-sm text-muted">{agent.task}</p>
                           </div>
                         </div>
-                        <span className="text-sm text-success capitalize">{agent.status}</span>
+                        <span className="text-sm text-success capitalize sm:text-right">{agent.status}</span>
                       </div>
                     ))}
                   </div>

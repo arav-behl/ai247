@@ -32,7 +32,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="relative w-full py-24 md:py-32 lg:py-40">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="section-shell">
         {/* Section header */}
         <div className="text-center mb-16 md:mb-20">
           <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">

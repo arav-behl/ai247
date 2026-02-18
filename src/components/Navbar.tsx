@@ -7,11 +7,11 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex h-16 items-center justify-between">
+      <div className="section-shell">
+        <div className="flex h-[4.5rem] items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent">
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent">
               <svg
                 className="h-5 w-5 text-white"
                 fill="none"
@@ -26,50 +26,50 @@ export default function Navbar() {
                 />
               </svg>
             </div>
-            <span className="text-xl font-bold tracking-tight">
+            <span className="text-xl font-bold tracking-tight md:text-2xl">
               AI<span className="text-accent">247</span>
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-8">
+          <div className="hidden md:flex md:items-center md:gap-10">
             <a
               href="#features"
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               Features
             </a>
             <a
               href="#security"
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               Security
             </a>
             <a
               href="#how-it-works"
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               How It Works
             </a>
             <a
               href="#pricing"
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               Pricing
             </a>
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex md:items-center md:gap-3">
+          <div className="hidden md:flex md:items-center md:gap-4">
             <a
               href="#contact"
-              className="text-sm text-muted transition-colors hover:text-foreground"
+              className="text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               Sign In
             </a>
             <a
               href="#contact"
-              className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-hover"
+              className="button-base button-primary min-w-[9.75rem]"
             >
               Book a Demo
             </a>
@@ -77,8 +77,9 @@ export default function Navbar() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden text-muted hover:text-foreground"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-muted transition-colors hover:bg-card hover:text-foreground md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             <svg
               className="h-6 w-6"
@@ -106,46 +107,48 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="border-t border-border py-4 md:hidden">
-            <div className="flex flex-col gap-4">
+          <div className="border-t border-border pb-6 pt-5 md:hidden">
+            <div className="flex flex-col items-center gap-4 text-center">
               <a
                 href="#features"
-                className="text-sm text-muted transition-colors hover:text-foreground"
+                className="text-base text-muted transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Features
               </a>
               <a
                 href="#security"
-                className="text-sm text-muted transition-colors hover:text-foreground"
+                className="text-base text-muted transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Security
               </a>
               <a
                 href="#how-it-works"
-                className="text-sm text-muted transition-colors hover:text-foreground"
+                className="text-base text-muted transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 How It Works
               </a>
               <a
                 href="#pricing"
-                className="text-sm text-muted transition-colors hover:text-foreground"
+                className="text-base text-muted transition-colors hover:text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Pricing
               </a>
-              <div className="flex flex-col gap-2 pt-2 border-t border-border">
+              <div className="mt-1 flex w-full max-w-sm flex-col gap-3 border-t border-border pt-4">
                 <a
                   href="#contact"
-                  className="text-sm text-muted transition-colors hover:text-foreground"
+                  className="button-base button-outline w-full"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Sign In
                 </a>
                 <a
                   href="#contact"
-                  className="rounded-lg bg-accent px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-accent-hover"
+                  className="button-base button-primary w-full"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Book a Demo
                 </a>

@@ -74,9 +74,9 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="section-shell">
         {/* Section header */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="mx-auto mb-16 max-w-4xl text-center md:mb-20">
           <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
             Pricing
           </p>
@@ -84,30 +84,26 @@ export default function Pricing() {
             Hire an AI Employee for a{" "}
             <span className="text-muted">Fraction of the Cost</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-muted text-base md:text-lg leading-relaxed mb-8 md:mb-10 px-4">
+          <p className="mx-auto mb-8 max-w-2xl px-4 text-base leading-relaxed text-muted md:mb-10 md:text-lg">
             No hidden fees. No long-term contracts. Deploy in days, not months.
             Pay only for what you use.
           </p>
 
           {/* Currency toggle */}
-          <div className="inline-flex items-center rounded-xl border border-border bg-card p-1.5 md:p-2">
+          <div className="mx-auto grid w-full max-w-sm grid-cols-2 gap-2 rounded-2xl border border-border bg-card p-2">
             <button
+              type="button"
               onClick={() => setCurrency("USD")}
-              className={`rounded-lg px-5 md:px-6 py-2.5 md:py-3 text-sm md:text-base font-medium transition-all ${
-                currency === "USD"
-                  ? "bg-accent text-white"
-                  : "text-muted hover:text-foreground"
-              }`}
+              className="button-toggle"
+              aria-pressed={currency === "USD"}
             >
               USD ($)
             </button>
             <button
+              type="button"
               onClick={() => setCurrency("INR")}
-              className={`rounded-lg px-5 md:px-6 py-2.5 md:py-3 text-sm md:text-base font-medium transition-all ${
-                currency === "INR"
-                  ? "bg-accent text-white"
-                  : "text-muted hover:text-foreground"
-              }`}
+              className="button-toggle"
+              aria-pressed={currency === "INR"}
             >
               INR (₹)
             </button>
@@ -115,11 +111,11 @@ export default function Pricing() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 items-start pt-6">
+        <div className="grid grid-cols-1 gap-8 pt-6 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative rounded-2xl border p-6 md:p-8 lg:p-10 transition-all duration-300 ${
+              className={`relative flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 md:p-8 lg:p-10 ${
                 plan.highlight
                   ? "border-accent/50 bg-card md:scale-[1.02] shadow-xl shadow-accent-glow"
                   : "border-border bg-card hover:border-border-light"
@@ -133,13 +129,13 @@ export default function Pricing() {
                 </div>
               )}
 
-              <div className="mb-6 md:mb-8">
+              <div className="mb-7 md:mb-8">
                 <h3 className="text-xl md:text-2xl font-semibold mb-2 md:mb-3">{plan.name}</h3>
                 <p className="text-sm md:text-base text-muted">{plan.description}</p>
               </div>
 
-              <div className="mb-6 md:mb-8">
-                <div className="flex items-baseline gap-1 md:gap-2">
+              <div className="mb-7 md:mb-8">
+                <div className="flex items-end gap-2 md:gap-3">
                   <span className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     {formatPrice(plan.priceUSD, plan.priceINR)}
                   </span>
@@ -156,16 +152,16 @@ export default function Pricing() {
 
               <a
                 href="#contact"
-                className={`block w-full rounded-xl px-4 md:px-6 py-3 md:py-4 text-center text-sm md:text-base font-medium transition-all ${
+                className={`button-base mt-auto w-full ${
                   plan.highlight
-                    ? "bg-accent text-white hover:bg-accent-hover"
-                    : "border border-border text-foreground hover:bg-card-hover"
+                    ? "button-primary"
+                    : "button-outline"
                 }`}
               >
                 {plan.cta}
               </a>
 
-              <div className="mt-6 md:mt-10 pt-6 md:pt-8 border-t border-border">
+              <div className="mt-7 border-t border-border pt-6 md:mt-10 md:pt-8">
                 <ul className="space-y-3 md:space-y-4">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-3 md:gap-4 text-sm md:text-base">

@@ -20,10 +20,10 @@ export default function CTA() {
 
   return (
     <section id="contact" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
+      <div className="section-shell">
+        <div className="grid grid-cols-1 items-center gap-12 md:gap-16 lg:grid-cols-2 lg:gap-20">
           {/* Left side - Copy */}
-          <div>
+          <div className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:text-left">
             <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
               Get Started
             </p>
@@ -37,7 +37,7 @@ export default function CTA() {
               operations — all within 48 hours of signing up.
             </p>
 
-            <div className="space-y-6 md:space-y-8">
+            <div className="mx-auto max-w-xl space-y-6 md:space-y-8 lg:mx-0">
               {[
                 {
                   title: "Free 30-Minute Discovery Call",
@@ -55,7 +55,7 @@ export default function CTA() {
                     "14-day money-back guarantee. No long-term contracts. Cancel anytime.",
                 },
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4 md:gap-5">
+                <div key={i} className="flex items-start gap-4 text-left md:gap-5">
                   <div className="flex h-9 w-9 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full bg-accent/10">
                     <svg
                       className="h-4 w-4 md:h-5 md:w-5 text-accent"
@@ -79,7 +79,7 @@ export default function CTA() {
           </div>
 
           {/* Right side - Form */}
-          <div className="rounded-2xl border border-border bg-card p-6 md:p-8 lg:p-10">
+          <div className="mx-auto w-full max-w-2xl rounded-2xl border border-border bg-card p-6 md:p-8 lg:p-10">
             {submitted ? (
               <div className="text-center py-12 md:py-16">
                 <div className="inline-flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-success/10 mb-6 md:mb-8">
@@ -112,10 +112,10 @@ export default function CTA() {
                   Fill in your details and we&apos;ll get back to you within 24
                   hours.
                 </p>
-                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <div>
-                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
+                      <label className="mb-2 block text-sm font-medium">
                         Full Name
                       </label>
                       <input
@@ -125,12 +125,12 @@ export default function CTA() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="form-control"
                         placeholder="John Doe"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
+                      <label className="mb-2 block text-sm font-medium">
                         Work Email
                       </label>
                       <input
@@ -140,14 +140,14 @@ export default function CTA() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="form-control"
                         placeholder="john@company.com"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                     <div>
-                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
+                      <label className="mb-2 block text-sm font-medium">
                         Company Name
                       </label>
                       <input
@@ -157,12 +157,12 @@ export default function CTA() {
                         onChange={(e) =>
                           setFormData({ ...formData, company: e.target.value })
                         }
-                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="form-control"
                         placeholder="Acme Corp"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
+                      <label className="mb-2 block text-sm font-medium">
                         Company Size
                       </label>
                       <select
@@ -174,7 +174,7 @@ export default function CTA() {
                             employees: e.target.value,
                           })
                         }
-                        className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                        className="form-control"
                       >
                         <option value="">Select size</option>
                         <option value="1-10">1-10 employees</option>
@@ -186,7 +186,7 @@ export default function CTA() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs md:text-sm font-medium mb-1.5 md:mb-2">
+                    <label className="mb-2 block text-sm font-medium">
                       What would you like your AI employee to do?
                     </label>
                     <textarea
@@ -195,13 +195,13 @@ export default function CTA() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       rows={4}
-                      className="w-full rounded-xl border border-border bg-background px-4 md:px-5 py-3 md:py-3.5 text-sm md:text-base text-foreground placeholder:text-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent resize-none"
+                      className="form-control resize-none"
                       placeholder="e.g., Handle customer support tickets, automate sales follow-ups, generate weekly reports..."
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full rounded-xl bg-accent px-5 md:px-6 py-3 md:py-4 text-sm md:text-base font-medium text-white transition-all hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
+                    className="button-base button-primary w-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-background"
                   >
                     Book My Free Demo
                   </button>

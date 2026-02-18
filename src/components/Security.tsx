@@ -58,7 +58,7 @@ const securityFeatures = [
 export default function Security() {
   return (
     <section id="security" className="relative w-full py-24 md:py-32 lg:py-40 section-gradient">
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="section-shell">
         {/* Section header */}
         <div className="text-center mb-16 md:mb-20">
           <p className="text-sm font-medium text-accent mb-4 tracking-wide uppercase">
